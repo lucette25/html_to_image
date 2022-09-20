@@ -39,6 +39,26 @@
 			anchorTag.target = '_blank';
 			anchorTag.click();
 		});
+
+ });
+ document.getElementById("btn-Preview-Image").addEventListener("click", function() {
+		html2canvas($("#html-content-holder")[0]).then(function (canvas) {			
+			document.getElementById("previewImg").appendChild(canvas);
+			
+		});
+	});
+
+
+		document.getElementById("btn-Convert-Html2Image").addEventListener("click", function() {
+		html2canvas($("#html-content-holder")[0]).then(function (canvas) {			
+		var anchorTag = document.createElement("a");
+			document.body.appendChild(anchorTag);
+			anchorTag.download = "filename.jpg";
+			anchorTag.href = canvas.toDataURL();
+			anchorTag.target = '_blank';
+			anchorTag.click();
+		});
+
  });
 //});
 
